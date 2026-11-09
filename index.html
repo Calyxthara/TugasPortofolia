@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achmad Adli Syahir | Junior Network Engineer</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --grid-line: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--grid-line);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            padding: 5rem 0;
+            text-align: left;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent);
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .profile-info {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item p {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(30,41,59,0.5) 100%);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--grid-line);
+        }
+
+        .skill-card h4 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .projects {
+            margin-bottom: 4rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--grid-line);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .project-card .icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--grid-line);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">AAS<span>.net</span></div>
+            <nav>
+                <a href="#profile">Profil</a>
+                <a href="#skills">Keahlian</a>
+                <a href="#projects">Portofolio</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <span class="badge">Junior Network Engineer</span>
+            <h1>Achmad Adli Syahir</h1>
+            <p>Siswa Teknik Jaringan Komputer dan Telekomunikasi yang berfokus pada administrasi jaringan, konfigurasi perangkat, dan dasar-dasar infrastruktur jaringan.</p>
+            <a href="mailto:emailmu@domain.com" class="btn">Hubungi Saya</a>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="grid">
+            <!-- Profile Info -->
+            <section id="profile">
+                <h2 class="section-title">Tentang Saya</h2>
+                <div class="profile-info">
+                    <div class="info-item">
+                        <label>Nama Lengkap</label>
+                        <p>Achmad Adli Syahir</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Pendidikan</label>
+                        <p>Kelas 10 - SMK / Jurusan TJKT</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Fokus Studi</label>
+                        <p>Teknik Jaringan Komputer & Telekomunikasi</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Minat Khusus</label>
+                        <p>Routing, Switching, & Network Security</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills">
+                <h2 class="section-title">Keahlian Teknis</h2>
+                <div class="skills-list">
+                    <div class="skill-card">
+                        <h4>Dasar Jaringan</h4>
+                        <p>Model OSI, TCP/IP, Subnetting IP v4</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Perangkat Keras</h4>
+                        <p>Pengenalan Router & Switch (Cisco/MikroTik)</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Simulasi</h4>
+                        <p>Cisco Packet Tracer</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Kabel Jaringan</h4>
+                        <p>Crimping RJ-45 (Straight & Cross)</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects / Portfolio -->
+        <section id="projects" class="projects">
+            <h2 class="section-title">Laboratorium & Proyek</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="icon">☍</div>
+                    <h3>Simulasi Jaringan LAN Sekolah</h3>
+                    <p>Merancang dan mensimulasikan arsitektur jaringan lokal menggunakan Cisco Packet Tracer dengan implementasi DHCP Server.</p>
+                    <div class="tags">
+                        <span class="tag">Packet Tracer</span>
+                        <span class="tag">LAN</span>
+                        <span class="tag">DHCP</span>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="icon">⚙</div>
+                    <h3>Konfigurasi Dasar Routing</h3>
